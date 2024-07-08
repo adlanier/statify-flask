@@ -75,3 +75,4 @@ def get_artist_info():
     except Exception as e:
         logging.error(f"Error processing request: {str(e)}")
         return jsonify({"error": "Internal server error"}), 500
+    ##redeoply plez
