@@ -1,8 +1,32 @@
 {
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/api/index"
-        }
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/index.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "api/proxyArtists.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "api/test.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/artists",
+        "dest": "api/index.py"
+      },
+      {
+        "src": "/api/proxyArtists",
+        "dest": "api/proxyArtists.js"
+      },
+      {
+        "src": "/api/test",
+        "dest": "api/test.py"
+      }
     ]
-}
+  }
+  
